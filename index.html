@@ -493,14 +493,15 @@
             overflow: hidden;
             border-radius: 8px;
             display: block;
-            height: 300px; /* Added fixed height like Terniqour */
+            /* UPDATED: Changed fixed height to aspect-ratio for 1:1 square */
+            aspect-ratio: 1 / 1; 
         }
         
         .gallery-item img {
             transition: transform 0.5s ease;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Added object-fit */
+            object-fit: cover; /* This makes the image fill the 1:1 square */
         }
         
         .item-overlay {
@@ -895,8 +896,18 @@
             h2 { font-size: 1.8rem; }
             .section-header h2 { font-size: 1.8rem; }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            /* UPDATED: Hero section mobile sizing */
+            .hero {
+                padding-top: 40px;
+                padding-bottom: 40px;
+                min-height: auto;
+            }
+            .hero-logo-img {
+                max-width: 300px; /* Smaller logo */
+            }
+            .hero-content p {
+                font-size: 0.95rem; /* Smaller text */
+                margin-bottom: 20px;
             }
             
             .portfolio-gallery,
@@ -909,30 +920,41 @@
             .services-grid,
             .pricing-table {
                 grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
-                gap: 1rem;
+                gap: 0.5rem; /* Tighter gap */
             }
             .service-card {
-                padding: 20px; /* Reduced padding for smaller card */
+                padding: 15px; /* Reduced padding */
+            }
+            .service-card .icon {
+                font-size: 2rem; /* Smaller icon */
+                margin-bottom: 10px;
             }
             .service-card h3 {
-                font-size: 1.1rem;
+                font-size: 0.9rem; /* Smaller font */
+                line-height: 1.3;
             }
             .service-card p {
-                font-size: 0.85rem;
+                font-size: 0.75rem; /* Smaller font */
+                line-height: 1.4;
             }
 
             .pricing-plan {
-                padding: 20px; /* Reduced padding */
+                padding: 15px; /* Reduced padding */
             }
             .pricing-plan h3 {
-                font-size: 1.2rem;
+                font-size: 1rem; /* Smaller font */
             }
             .pricing-plan .price {
-                font-size: 1.8rem;
+                font-size: 1.5rem; /* Smaller font */
+                margin: 10px 0;
             }
             .plan-features li {
-                font-size: 0.85rem;
+                font-size: 0.75rem; /* Smaller font */
                 gap: 5px;
+                margin-bottom: 8px;
+            }
+            .plan-features li i {
+                font-size: 1rem; /* Smaller icon */
             }
 
         }
@@ -1101,7 +1123,8 @@
                         </div>
                     </a>
                     <a href="#" class="gallery-item">
-                        <img src="VENDRAP FRIFAY NASTY C.png" alt="Event Poster">
+                        <!-- UPDATED: Image filename -->
+                        <img src="VENDRAP FRIFAY NASTY C.PNG" alt="Event Poster">
                         <div class="item-overlay">
                             <h4>Event Poster</h4>
                         </div>
