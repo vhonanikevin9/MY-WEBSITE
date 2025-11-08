@@ -246,6 +246,16 @@
             100% { box-shadow: 0 0 0 0 rgba(245, 176, 42, 0); }
         }
 
+        /* NEW: Floating Image Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-img {
+            animation: float 6s ease-in-out infinite;
+        }
+
 
         /* ===================================================================
            1. GLOBAL HEADER (STICKY)
@@ -272,9 +282,9 @@
             font-weight: 700;
             color: var(--color-text);
         }
-        /* NEW: Style for Logo Image */
+        /* UPDATED: Style for Logo Image */
         .logo-img {
-            max-height: 50px;
+            max-height: 70px; /* Enlarged logo */
             width: auto;
             border-radius: 0;
         }
@@ -333,28 +343,18 @@
         .hero .container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center; /* Centered content since image is removed */
             gap: 3rem;
+            text-align: center; /* Centered content */
         }
 
         .hero-content {
             flex: 1;
             animation: fadeIn 1s ease-out;
+            max-width: 600px; /* Added max-width */
         }
         
-        .hero-content .subtitle {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--color-text-muted);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-        
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
+        /* REMOVED: Subtitle text */
         
         /* NEW: Style for Hero Logo */
         .hero-logo-img {
@@ -372,15 +372,7 @@
             padding: 12px 30px;
         }
 
-        .hero-visual {
-            flex: 0 0 45%;
-            position: relative;
-            animation: zoomIn 1s ease-out;
-        }
-        
-        .hero-visual img {
-            border-radius: 20px;
-        }
+        /* REMOVED: hero-visual div */
         
         /* Keyframe Animations */
         @keyframes fadeIn {
@@ -907,13 +899,42 @@
                 font-size: 2.5rem;
             }
             
-            .services-grid,
             .portfolio-gallery,
-            .pricing-table,
             .contact-info-row,
             .footer-grid {
                 grid-template-columns: 1fr;
             }
+
+            /* UPDATED: Services and Pricing for mobile */
+            .services-grid,
+            .pricing-table {
+                grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+                gap: 1rem;
+            }
+            .service-card {
+                padding: 20px; /* Reduced padding for smaller card */
+            }
+            .service-card h3 {
+                font-size: 1.1rem;
+            }
+            .service-card p {
+                font-size: 0.85rem;
+            }
+
+            .pricing-plan {
+                padding: 20px; /* Reduced padding */
+            }
+            .pricing-plan h3 {
+                font-size: 1.2rem;
+            }
+            .pricing-plan .price {
+                font-size: 1.8rem;
+            }
+            .plan-features li {
+                font-size: 0.85rem;
+                gap: 5px;
+            }
+
         }
 
     </style>
@@ -937,7 +958,7 @@
         <div class="container">
             <!-- UPDATED: Logo -->
             <a href="#home" class="logo">
-                <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="logo-img">
+                <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="logo-img floating-img">
             </a>
 
             <!-- UPDATED: Nav Links -->
@@ -968,16 +989,13 @@
             <div class="container">
                 <!-- UPDATED: Hero Content -->
                 <div class="hero-content">
-                    <span class="subtitle">Revolutionize Your Digital Experience Today</span>
+                    <!-- REMOVED Subtitle -->
                     <!-- Replaced H1 text with your logo -->
-                    <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="hero-logo-img">
+                    <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="hero-logo-img floating-img">
                     <p>Terniqour Grafix accelerates your business growth through innovative solutions and cutting-edge design. Join thousands of satisfied customers who have transformed their visual identity.</p>
                     <a href="#about" class="btn btn-outline">Learn More</a>
                 </div>
-                <div class="hero-visual">
-                    <!-- Replaced placeholder with one of your images -->
-                    <img src="graphic-design-icon-png-8.jpg" alt="Graphic Design">
-                </div>
+                <!-- REMOVED Hero Visual -->
             </div>
         </section>
 
@@ -988,7 +1006,7 @@
             <div class="container">
                 <div class="about-visual">
                     <!-- Replaced placeholder with one of your images -->
-                    <img src="graphic-design-icon-png-8.jpg" alt="About Terniqour Grafix">
+                    <img src="graphic-design-icon-png-8.jpg" alt="About Terniqour Grafix" class="floating-img">
                 </div>
                 <!-- UPDATED: About Content -->
                 <div class="about-content">
@@ -1083,7 +1101,7 @@
                         </div>
                     </a>
                     <a href="#" class="gallery-item">
-                        <img src="dj  mapholisa_.png" alt="Event Poster">
+                        <img src="VENDRAP FRIFAY NASTY C.png" alt="Event Poster">
                         <div class="item-overlay">
                             <h4>Event Poster</h4>
                         </div>
@@ -1227,7 +1245,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="#home" class="logo">
-                        <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="logo-img footer-col-logo-img">
+                        <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="logo-img footer-col-logo-img floating-img">
                     </a>
                     <p>Professional graphic design services to elevate your brand and drive business growth.</p>
                 </div>
