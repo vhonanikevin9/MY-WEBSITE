@@ -3,270 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Updated Title -->
     <title>Terniqour Grafix - Professional Graphic Design Services</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Font Awesome CDN (for WhatsApp/Facebook icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        /* ===================================================================
+           0. ROOT VARIABLES & GLOBAL STYLES
+           =================================================================== */
+
         :root {
-            --primary: #3498db;
-            --secondary: #2c3e50;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
+            /* Theme Colors (From STRATEGY) */
+            --bg-dark: #222529;
+            --bg-card: #2b2e34;
+            --color-accent: #f5b02a; /* Kept STRATEGY's gold accent */
+            --color-text: #f1f1f1;
+            --color-text-muted: #aaaaaa;
+            
+            /* Typography */
+            --font-primary: 'Poppins', sans-serif;
+
+            /* Spacing */
+            --section-padding: 80px 0;
+            --container-width: 1140px;
         }
-        
+
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            font-family: var(--font-primary);
+            background-color: var(--bg-dark);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden; /* Prevents horizontal scroll */
         }
-        
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            padding: 15px 0;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-brand img {
-            max-height: 70px;
-            transition: all 0.3s ease;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(52, 152, 219, 0.85)), url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
-            color: white;
-            padding: 180px 0 120px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-logo {
-            max-width: 400px;
-            margin: 0 auto 30px;
-            animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-        }
-        
-        .section-title {
-            position: relative;
-            margin-bottom: 50px;
-            padding-bottom: 15px;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
-        }
-        
-        .service-card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            margin-bottom: 30px;
-            overflow: hidden;
-            background: white;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .service-icon {
-            font-size: 48px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .floating-logo {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .portfolio-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            height: 300px;
-            transition: all 0.4s ease;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .portfolio-item img {
-            transition: all 0.5s ease;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .portfolio-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(52, 152, 219, 0.85);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-        
-        .pricing-card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            margin-bottom: 30px;
-            background: white;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .pricing-header {
-            background: linear-gradient(135deg, var(--primary), #2980b9);
-            color: white;
-            padding: 25px;
-            border-radius: 15px 15px 0 0;
-        }
-        
-        .pricing-price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        
-        .contact-info {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            height: 100%;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .contact-info:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .contact-icon {
-            font-size: 24px;
-            color: var(--primary);
-            margin-right: 10px;
-        }
-        
-        footer {
-            background: linear-gradient(135deg, var(--dark), #1a252f);
-            color: white;
-            padding: 60px 0 20px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+
+        a {
             text-decoration: none;
+            color: var(--color-text);
             transition: all 0.3s ease;
         }
         
-        .footer-links a:hover {
-            color: white;
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
         }
         
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin-right: 10px;
-            color: white;
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.25rem; }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Default rounded corners for images */
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Section Base */
+        section {
+            padding: var(--section-padding);
+            overflow: hidden;
+        }
+        
+        /* Reusable Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header .subtitle {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .section-header .subtitle::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--color-accent);
+            margin: 10px auto 0;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+
+        /* Reusable Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             transition: all 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .stats-counter {
-            background: linear-gradient(135deg, var(--primary), #2980b9);
-            color: white;
-            padding: 80px 0;
-        }
-        
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: bold;
+            border: 2px solid transparent;
+            cursor: pointer;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), #2980b9);
-            border: none;
-            padding: 12px 35px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+            background-color: var(--color-accent);
+            color: var(--bg-dark);
+            border-color: var(--color-accent);
         }
-        
         .btn-primary:hover {
-            background: linear-gradient(135deg, #2980b9, var(--primary));
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.5);
+            background-color: transparent;
+            color: var(--color-accent);
         }
         
-        .btn-outline-primary {
-            color: var(--primary);
-            border-color: var(--primary);
-            padding: 12px 35px;
-            border-radius: 30px;
-            font-weight: 600;
+        .btn-outline {
+            border-color: var(--color-text);
+            color: var(--color-text);
+        }
+        .btn-outline:hover {
+            background-color: var(--color-text);
+            color: var(--bg-dark);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-accent);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
             transition: all 0.3s ease;
         }
         
-        .btn-outline-primary:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
         }
-        
-        /* Floating Social Buttons */
+        .back-to-top:hover {
+            background-color: var(--color-text);
+            color: var(--bg-dark);
+        }
+
+        /* ===================================================================
+           NEW: Floating Social (from Terniqour)
+           =================================================================== */
         .floating-social {
             position: fixed;
             right: 20px;
@@ -306,35 +241,686 @@
         }
         
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(245, 176, 42, 0.7); } /* Changed pulse to accent color */
+            70% { box-shadow: 0 0 0 10px rgba(245, 176, 42, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 176, 42, 0); }
         }
-        
-        /* Enhanced sections with subtle background patterns */
-        .bg-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233498db' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+
+
+        /* ===================================================================
+           1. GLOBAL HEADER (STICKY)
+           =================================================================== */
+
+        .header {
+            background-color: var(--bg-dark);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
-        
-        /* Enhanced typography */
-        h1, h2, h3, h4, h5, h6 {
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
             font-weight: 700;
+            color: var(--color-text);
+        }
+        /* NEW: Style for Logo Image */
+        .logo-img {
+            max-height: 50px;
+            width: auto;
+            border-radius: 0;
+        }
+
+        .navbar {
+            display: flex;
         }
         
-        .lead {
-            font-size: 1.25rem;
-            font-weight: 400;
+        .navbar ul {
+            display: flex;
+            gap: 30px;
         }
         
-        /* About section with floating icon */
-        .about-icon {
-            max-width: 300px;
-            animation: float 4s ease-in-out infinite;
+        .navbar a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 5px 0;
+            color: var(--color-text-muted);
+            position: relative;
         }
+        
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--color-text);
+        }
+
+        .navbar a.active {
+            color: var(--color-accent);
+        }
+        
+        .header .btn-primary {
+            padding: 8px 25px;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 2rem;
+            color: var(--color-text);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* ===================================================================
+           2. HERO SECTION
+           =================================================================== */
+           
+        .hero {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        /* NEW: Style for Hero Logo */
+        .hero-logo-img {
+            max-width: 400px;
+            border-radius: 0;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero-content .btn-outline {
+            padding: 12px 30px;
+        }
+
+        .hero-visual {
+            flex: 0 0 45%;
+            position: relative;
+            animation: zoomIn 1s ease-out;
+        }
+        
+        .hero-visual img {
+            border-radius: 20px;
+        }
+        
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* ===================================================================
+           3. ABOUT US SECTION
+           =================================================================== */
+
+        .about .container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-visual {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-content {
+            flex: 1.2;
+        }
+        
+        .about-content .subtitle {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===================================================================
+           4. STATS COUNTER (Replaced Client Proof)
+           =================================================================== */
+        
+        .stats-counter {
+            background-color: var(--bg-card);
+        }
+        
+        .stats-counter .container {
+            text-align: center;
+        }
+        
+        .stats-counter h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+        
+        .stats-counter p {
+            font-size: 1.2rem;
+            color: var(--color-text);
+        }
+
+        /* ===================================================================
+           5. SERVICES SECTION
+           =================================================================== */
+           
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-accent);
+        }
+        
+        .service-card .icon {
+            font-size: 3rem;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            font-size: 0.95rem;
+        }
+
+        /* ===================================================================
+           9. PORTFOLIO SECTION (Skipped 6, 7, 8)
+           =================================================================== */
+        
+        .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            display: block;
+            height: 300px; /* Added fixed height like Terniqour */
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Added object-fit */
+        }
+        
+        .item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Updated overlay to match Terniqour's blue, but let's use STRATEGY's accent */
+            background: rgba(34, 37, 41, 0.85); 
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centered text */
+            align-items: center; /* Centered text */
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .item-overlay h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            color: var(--color-accent); /* Make title stand out */
+        }
+        
+        .gallery-item:hover .item-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item:hover .item-overlay h4 {
+            transform: translateY(0);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ===================================================================
+           11. PRICING SECTION (Skipped 10)
+           =================================================================== */
+           
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: stretch; /* Changed to stretch */
+        }
+        
+        .pricing-plan {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            display: flex; /* Added flex */
+            flex-direction: column; /* Added flex */
+        }
+        
+        .pricing-plan:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-accent);
+        }
+        
+        .pricing-plan h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+        
+        .pricing-plan .price {
+            margin: 20px 0;
+            font-size: 2.5rem; /* Reduced size */
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+        
+        .price sup {
+            font-size: 1.5rem;
+            font-weight: 600;
+            top: -1.5rem;
+        }
+        .price sub {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+        }
+        
+        .plan-features {
+            margin-bottom: 30px;
+            text-align: left;
+            flex-grow: 1; /* Added */
+        }
+        
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--color-text-muted);
+        }
+        
+        .plan-features li i {
+            color: var(--color-accent);
+            font-size: 1.2rem;
+        }
+        
+        .plan-features li.disabled {
+            color: #777;
+            text-decoration: line-through;
+        }
+        .plan-features li.disabled i {
+            color: #777;
+        }
+        
+        .pricing-plan .btn {
+            width: 100%;
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+        .pricing-plan .btn:hover {
+            background-color: var(--color-accent);
+            color: var(--bg-dark);
+        }
+
+        /* ===================================================================
+           13. CONTACT SECTION (Skipped 12)
+           =================================================================== */
+
+        .contact-info-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .info-box {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .info-box .icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+        }
+        
+        .info-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .info-box p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* ===================================================================
+           14. FOOTER SECTION
+           =================================================================== */
+
+        .footer {
+            background-color: var(--bg-card);
+            padding: 80px 0 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 2rem;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--color-accent);
+        }
+        
+        .footer-col .logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .footer-col .logo-img {
+            max-height: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-col p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            width: 36px;
+            height: 36px;
+            background: var(--bg-dark);
+            color: var(--color-text-muted);
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        .footer-social a:hover {
+            background: var(--color-accent);
+            color: var(--bg-dark);
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col ul a {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+        .footer-col ul a:hover {
+            color: var(--color-accent);
+            padding-left: 5px;
+        }
+        
+        .footer-col .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .footer-col .contact-item i {
+            color: var(--color-accent);
+            font-size: 1.1rem;
+            padding-top: 4px;
+        }
+        
+        .copyright-bar {
+            background-color: var(--bg-dark);
+            padding: 25px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+        .copyright-bar a {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        /* ===================================================================
+           RESPONSIVE STYLES (Mobile First Approach)
+           =================================================================== */
+
+        /* Large tablets and small desktops */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 960px;
+            }
+            .services-grid,
+            .portfolio-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .pricing-table {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Tablets */
+        @media (max-width: 992px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .section-header h2 { font-size: 2.2rem; }
+
+            /* Mobile Nav Appears */
+            .navbar {
+                display: none; /* Hide desktop nav */
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: var(--bg-card);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                padding-top: 80px;
+                transition: right 0.4s ease-out;
+            }
+            
+            .navbar ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+            }
+            
+            .navbar li {
+                width: 100%;
+            }
+            
+            .navbar a {
+                display: block;
+                padding: 12px 15px;
+                font-size: 1.1rem;
+            }
+            
+            .header .btn-primary {
+                display: none; /* Hide Get Started on tablet/mobile */
+            }
+            
+            .mobile-nav-toggle {
+                display: block; /* Show burger icon */
+            }
+            
+            /* Body class when mobile nav is active */
+            .mobile-nav-active .navbar {
+                display: block;
+                right: 0;
+            }
+            /* Dark overlay for background */
+            .mobile-nav-active::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.6);
+                z-index: 998;
+            }
+            .mobile-nav-active .mobile-nav-toggle {
+                position: fixed;
+                top: 25px;
+                right: 20px;
+                z-index: 1001;
+            }
+
+            .hero .container,
+            .about .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                order: 2;
+            }
+            .hero-visual {
+                order: 1;
+                margin-bottom: 30px;
+            }
+
+            .about-visual {
+                margin-bottom: 30px;
+            }
+            
+            .services-grid,
+            .portfolio-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Mobile phones */
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .section-header h2 { font-size: 1.8rem; }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid,
+            .portfolio-gallery,
+            .pricing-table,
+            .contact-info-row,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <!-- Floating Social Buttons -->
+
+    <!-- NEW: Floating Social Buttons from Terniqour -->
     <div class="floating-social">
         <a href="https://wa.me/27722058773" class="whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i>
@@ -344,394 +930,433 @@
         </a>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <!-- ===================================================================
+       1. GLOBAL HEADER (STICKY)
+       =================================================================== -->
+    <header class="header">
         <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="floating-logo">
+            <!-- UPDATED: Logo -->
+            <a href="#home" class="logo">
+                <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="logo-img">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+
+            <!-- UPDATED: Nav Links -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-            </div>
-        </div>
-    </nav>
+            </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="hero-logo">
-                    <p class="lead mb-5">Revolutionize Your Digital Experience Today</p>
-                    <p class="mb-5">Terniqour Grafix accelerates your business growth through innovative solutions and cutting-edge design. Join thousands of satisfied customers who have transformed their visual identity.</p>
-                    <div class="d-flex justify-content-center gap-3 flex-wrap">
-                        <a href="#contact" class="btn btn-primary btn-lg">Get Started</a>
-                        <a href="#about" class="btn btn-outline-light btn-lg">Learn More</a>
-                    </div>
+            <a href="#contact" class="btn btn-primary">Get Started</a>
+            
+            <!-- Mobile Nav Toggle Button -->
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ===================================================================
+           2. HERO SECTION
+           =================================================================== -->
+        <section id="home" class="hero">
+            <div class="container">
+                <!-- UPDATED: Hero Content -->
+                <div class="hero-content">
+                    <span class="subtitle">Revolutionize Your Digital Experience Today</span>
+                    <!-- Replaced H1 text with your logo -->
+                    <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="hero-logo-img">
+                    <p>Terniqour Grafix accelerates your business growth through innovative solutions and cutting-edge design. Join thousands of satisfied customers who have transformed their visual identity.</p>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="hero-visual">
+                    <!-- Replaced placeholder with one of your images -->
+                    <img src="graphic-design-icon-png-8.jpg" alt="Graphic Design">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-5 bg-pattern">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <img src="graphic-design-icon-png-8.jpg" alt="Graphic Design Icon" class="about-icon img-fluid">
+        <!-- ===================================================================
+           3. ABOUT US SECTION
+           =================================================================== -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-visual">
+                    <!-- Replaced placeholder with one of your images -->
+                    <img src="graphic-design-icon-png-8.jpg" alt="About Terniqour Grafix">
                 </div>
-                <div class="col-lg-6">
-                    <h2 class="section-title">About Terniqour Grafix</h2>
-                    <p class="mb-4">At Terniqour Grafix, we specialize in creating stunning visual designs that help businesses stand out in today's competitive market. Our team of experienced designers combines creativity with technical expertise to deliver exceptional results.</p>
-                    <p class="mb-4">With years of experience in graphic design and web development, we understand what it takes to create designs that not only look great but also drive results. From logos and branding to complete website designs, we've got you covered.</p>
+                <!-- UPDATED: About Content -->
+                <div class="about-content">
+                    <span class="subtitle">ABOUT</span>
+                    <h2>About Terniqour Grafix</h2>
+                    <p>At Terniqour Grafix, we specialize in creating stunning visual designs that help businesses stand out in today's competitive market. Our team of experienced designers combines creativity with technical expertise to deliver exceptional results.</p>
+                    <p>With years of experience in graphic design and web development, we understand what it takes to create designs that not only look great but also drive results. From logos and branding to complete website designs, we've got you covered.</p>
                     <p>Our mission is to help businesses of all sizes establish a strong visual identity that resonates with their target audience and drives growth.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title">Explore Our Services</h2>
-                </div>
+        <!-- ===================================================================
+           4. STATS COUNTER (Replaced Client Proof)
+           =================================================================== -->
+        <section id="stats" class="stats-counter">
+            <div class="container">
+                <!-- UPDATED: Stats Content -->
+                <h2>5K+ Successful Campaigns</h2>
+                <p>We've helped businesses of all sizes achieve their design goals</p>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h4>Website Design</h4>
-                        <p>Custom website designs that are visually appealing, user-friendly, and optimized for performance across all devices.</p>
-                    </div>
+        </section>
+
+        <!-- ===================================================================
+           5. SERVICES SECTION
+           =================================================================== -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">SERVICES</span>
+                    <!-- UPDATED: Section Header -->
+                    <h2>Explore Our Services</h2>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h4>Logo Design</h4>
+                
+                <!-- UPDATED: Services Grid -->
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="bi bi-laptop icon"></i> <!-- Changed icon -->
+                        <h3>Website Design</h3>
+                        <p>Custom website designs that are visually appealing, user-friendly, and optimized for performance.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="bi bi-palette icon"></i> <!-- Changed icon -->
+                        <h3>Logo Design</h3>
                         <p>Creative and memorable logo designs that capture your brand's essence and make a lasting impression.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <h4>Event Posters</h4>
+                    <div class="service-card">
+                        <i class="bi bi-megaphone icon"></i> <!-- Changed icon -->
+                        <h3>Event Posters</h3>
                         <p>Eye-catching posters for events that grab attention and communicate essential information effectively.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h4>Business Posters</h4>
+                    <div class="service-card">
+                        <i class="bi bi-briefcase icon"></i> <!-- Changed icon -->
+                        <h3>Business Posters</h3>
                         <p>Professional posters for business promotions, announcements, and marketing campaigns.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="fas fa-tshirt"></i>
-                        </div>
-                        <h4>T-Shirt Design</h4>
+                    <div class="service-card">
+                        <i class="bi bi-gem icon"></i> <!-- Changed icon -->
+                        <h3>T-Shirt Design</h3>
                         <p>Creative t-shirt designs that represent your brand, event, or message with style and impact.</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="fas fa-tags"></i>
-                        </div>
-                        <h4>Product Branding</h4>
+                    <div class="service-card">
+                        <i class="bi bi-tags icon"></i> <!-- Changed icon -->
+                        <h3>Product Branding</h3>
                         <p>Comprehensive branding solutions that create a cohesive identity for your products across all platforms.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats Counter -->
-    <section class="stats-counter text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="mb-4">5K+ Successful Campaigns</h2>
-                    <p class="lead">We've helped businesses of all sizes achieve their design goals</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Sections 6, 7, 8 (Process, CTA, Testimonials) were removed as they are not in the Terniqour file -->
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-5 bg-pattern">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title">Our Portfolio</h2>
-                    <p>Check out some of our recent work across different design categories</p>
+        <!-- ===================================================================
+           9. PORTFOLIO SECTION
+           =================================================================== -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">PORTFOLIO</span>
+                    <!-- UPDATED: Section Header -->
+                    <h2>Our Portfolio</h2>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
+                
+                <!-- Portfolio filters removed to match Terniqour -->
+                
+                <!-- UPDATED: Portfolio Gallery -->
+                <div class="portfolio-gallery">
+                    <a href="#" class="gallery-item">
                         <img src="THE PEOPLE’S LAWYER FOUNDATION MOCKUP.png" alt="Logo Design">
-                        <div class="portfolio-overlay">
-                            <h4 class="text-white">Logo Design</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="dj  mapholisa_.png" alt="Event Poster">
-                        <div class="portfolio-overlay">
-                            <h4 class="text-white">Event Poster</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="UNA TECH 14 MARCH.png" alt="Business Poster">
-                        <div class="portfolio-overlay">
-                            <h4 class="text-white">Business Poster</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="yclsa t shirt.png" alt="T-Shirt Design">
-                        <div class="portfolio-overlay">
-                            <h4 class="text-white">T-Shirt Design</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="Josephinesiam Spiritual Alignment HERBpackaging.png" alt="Product Branding">
-                        <div class="portfolio-overlay">
-                            <h4 class="text-white">Product Branding</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="KOTA SPECIAL.png" alt="Food Poster">
-                        <div class="portfolio-overlay">
-                            <h4 class="text-white">Food Poster</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title">Our Pricing</h2>
-                    <p>Affordable pricing for all your design needs</p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card text-center">
-                        <div class="pricing-header">
-                            <h4>Websites</h4>
-                        </div>
-                        <div class="pricing-body p-4">
-                            <div class="pricing-price">Starts from R900</div>
-                            <p>Professional website design tailored to your business needs</p>
-                            <ul class="list-unstyled mb-4">
-                                <li><i class="fas fa-check text-primary me-2"></i> Responsive Design</li>
-                                <li><i class="fas fa-check text-primary me-2"></i> SEO Optimization</li>
-                                <li><i class="fas fa-check text-primary me-2"></i> Fast Loading</li>
-                                <li><i class="fas fa-check text-primary me-2"></i> Mobile Friendly</li>
-                            </ul>
-                            <a href="#contact" class="btn btn-primary">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card text-center">
-                        <div class="pricing-header">
-                            <h4>Design Services</h4>
-                        </div>
-                        <div class="pricing-body p-4">
-                            <div class="pricing-price">Starts from R200</div>
-                            <p>Various design services to meet your marketing needs</p>
-                            <ul class="list-unstyled mb-4">
-                                <li><i class="fas fa-check text-primary me-2"></i> Event Posters</li>
-                                <li><i class="fas fa-check text-primary me-2"></i> Business Posters</li>
-                                <li><i class="fas fa-check text-primary me-2"></i> T-Shirt Design</li>
-                                <li><i class="fas fa-check text-primary me-2"></i> Product Branding</li>
-                            </ul>
-                            <a href="#contact" class="btn btn-primary">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card text-center">
-                        <div class="pricing-header">
+                        <div class="item-overlay">
                             <h4>Logo Design</h4>
                         </div>
-                        <div class="pricing-body p-4">
-                            <div class="pricing-price">Starts from R350</div>
-                            <p>Creative logo designs that represent your brand identity</p>
-                            <ul class="list-unstyled mb-4">
-                                <li><i class="fas fa-check text-primary me-2"></i> Multiple Concepts</li>
-                                <li><i class="fas fa-check text-primary me-2"></i> Revisions Included</li>
-                                <li><i class="fas fa-check text-primary me-2"></i> Vector Format</li>
-                                <li><i class="fas fa-check text-primary me-2"></i> Brand Guidelines</li>
-                            </ul>
-                            <a href="#contact" class="btn btn-primary">Get Started</a>
+                    </a>
+                    <a href="#" class="gallery-item">
+                        <img src="dj  mapholisa_.png" alt="Event Poster">
+                        <div class="item-overlay">
+                            <h4>Event Poster</h4>
+                        </div>
+                    </a>
+                    <a href="#" class="gallery-item">
+                        <img src="UNA TECH 14 MARCH.png" alt="Business Poster">
+                        <div class="item-overlay">
+                            <h4>Business Poster</h4>
+                        </div>
+                    </a>
+                    <a href="#" class="gallery-item">
+                        <img src="yclsa t shirt.png" alt="T-Shirt Design">
+                        <div class="item-overlay">
+                            <h4>T-Shirt Design</h4>
+                        </div>
+                    </a>
+                    <a href="#" class="gallery-item">
+                        <img src="Josephinesiam Spiritual Alignment HERBpackaging.png" alt="Product Branding">
+                        <div class="item-overlay">
+                            <h4>Product Branding</h4>
+                        </div>
+                    </a>
+                    <a href="#" class="gallery-item">
+                        <img src="KOTA SPECIAL.png" alt="Food Poster">
+                        <div class="item-overlay">
+                            <h4>Food Poster</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10 (Team) was removed as it is not in the Terniqour file -->
+
+        <!-- ===================================================================
+           11. PRICING SECTION
+           =================================================================== -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">PRICING</span>
+                    <!-- UPDATED: Section Header -->
+                    <h2>Our Pricing</h2>
+                </div>
+                
+                <!-- UPDATED: Pricing Table -->
+                <div class="pricing-table">
+                    <div class="pricing-plan">
+                        <h3>Websites</h3>
+                        <div class="price">Starts from R900</div>
+                        <p>Professional website design tailored to your business needs</p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-lg"></i> Responsive Design</li>
+                            <li><i class="bi bi-check-lg"></i> SEO Optimization</li>
+                            <li><i class="bi bi-check-lg"></i> Fast Loading</li>
+                            <li><i class="bi bi-check-lg"></i> Mobile Friendly</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-plan"> <!-- Removed 'highlighted' class -->
+                        <h3>Design Services</h3>
+                        <div class="price">Starts from R200</div>
+                        <p>Various design services to meet your marketing needs</p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-lg"></i> Event Posters</li>
+                            <li><i class="bi bi-check-lg"></i> Business Posters</li>
+                            <li><i class="bi bi-check-lg"></i> T-Shirt Design</li>
+                            <li><i class="bi bi-check-lg"></i> Product Branding</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-plan">
+                        <h3>Logo Design</h3>
+                        <div class="price">Starts from R350</div>
+                        <p>Creative logo designs that represent your brand identity</p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-lg"></i> Multiple Concepts</li>
+                            <li><i class="bi bi-check-lg"></i> Revisions Included</li>
+                            <li><i class="bi bi-check-lg"></i> Vector Format</li>
+                            <li><i class="bi bi-check-lg"></i> Brand Guidelines</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 12 (FAQ) was removed as it is not in the Terniqour file -->
+
+        <!-- ===================================================================
+           13. CONTACT SECTION
+           =================================================================== -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">CONTACT</span>
+                    <!-- UPDATED: Section Header -->
+                    <h2>Get In Touch</h2>
+                </div>
+                
+                <!-- UPDATED: Contact Info Boxes -->
+                <div class="contact-info-row">
+                    <div class="info-box">
+                        <i class="bi bi-envelope-fill icon"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>vhonanikevin9@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <i class="fab fa-whatsapp icon"></i> <!-- Changed icon -->
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>072 205 8773</p>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <i class="bi bi-clock-fill icon"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>24/7</p>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Contact map and form removed to match Terniqour -->
+                
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-pattern">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p>We'd love to hear from you. Contact us directly via email or WhatsApp.</p>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="contact-info text-center">
-                        <i class="fas fa-envelope contact-icon"></i>
-                        <h4>Email</h4>
-                        <p>vhonanikevin9@gmail.com</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="contact-info text-center">
-                        <i class="fab fa-whatsapp contact-icon"></i>
-                        <h4>WhatsApp</h4>
-                        <p>072 205 8773</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="contact-info text-center">
-                        <i class="fas fa-clock contact-icon"></i>
-                        <h4>Working Hours</h4>
-                        <p>24/7</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
-    <footer>
+    <!-- ===================================================================
+       14. FOOTER SECTION
+       =================================================================== -->
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="mb-3" style="max-height: 60px;">
+            <!-- UPDATED: Footer Grid -->
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#home" class="logo">
+                        <img src="TERNI DESIGN ONE NO BG.png" alt="Terniqour Grafix Logo" class="logo-img footer-col-logo-img">
+                    </a>
                     <p>Professional graphic design services to elevate your brand and drive business growth.</p>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                    <h5 class="mb-3">Quick Links</h5>
-                    <ul class="list-unstyled footer-links">
-                        <li class="mb-2"><a href="#home">Home</a></li>
-                        <li class="mb-2"><a href="#about">About</a></li>
-                        <li class="mb-2"><a href="#services">Services</a></li>
-                        <li class="mb-2"><a href="#portfolio">Portfolio</a></li>
-                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="mb-3">Services</h5>
-                    <ul class="list-unstyled footer-links">
-                        <li class="mb-2"><a href="#services">Website Design</a></li>
-                        <li class="mb-2"><a href="#services">Logo Design</a></li>
-                        <li class="mb-2"><a href="#services">Event Posters</a></li>
-                        <li class="mb-2"><a href="#services">T-Shirt Design</a></li>
-                        <li class="mb-2"><a href="#services">Product Branding</a></li>
+                
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Website Design</a></li>
+                        <li><a href="#services">Logo Design</a></li>
+                        <li><a href="#services">Event Posters</a></li>
+                        <li><a href="#services">T-Shirt Design</a></li>
+                        <li><a href="#services">Product Branding</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3">
-                    <h5 class="mb-3">Connect With Us</h5>
-                    <div class="social-icons mb-4">
+                
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="footer-social">
                         <a href="https://wa.me/27722058773" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.facebook.com/profile.php?id=100081639931096" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     </div>
-                    <p>Designed by <a href="https://www.facebook.com/profile.php?id=100081639931096" target="_blank" class="text-white">rambuwani vhonani</a></p>
-                </div>
-            </div>
-            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="mb-0">&copy; 2023 Terniqour Grafix. All rights reserved.</p>
                 </div>
             </div>
         </div>
+        
+        <div class="copyright-bar">
+            <!-- UPDATED: Copyright -->
+            &copy; 2023 <strong>Terniqour Grafix</strong>. All rights reserved.<br>
+            Designed by <a href="https://www.facebook.com/profile.php?id=100081639931096" target="_blank">rambuwani vhonani</a>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Navbar background change on scroll
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                document.querySelector('.navbar').style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-                document.querySelector('.navbar-brand img').style.maxHeight = '60px';
-            } else {
-                document.querySelector('.navbar').style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-                document.querySelector('.navbar-brand img').style.maxHeight = '70px';
-            }
-        });
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+    <!-- ===================================================================
+       JAVASCRIPT
+       =================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /**
+             * 1. Mobile Navigation Toggle
+             */
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            if (mobileNavToggle) {
+                mobileNavToggle.addEventListener('click', function(e) {
+                    document.body.classList.toggle('mobile-nav-active');
+                    this.classList.toggle('bi-list');
+                    this.classList.toggle('bi-x');
+                });
+            }
+            
+            // Close mobile nav when a link is clicked
+            document.querySelectorAll('.navbar a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (document.body.classList.contains('mobile-nav-active')) {
+                        document.body.classList.remove('mobile-nav-active');
+                        mobileNavToggle.classList.add('bi-list');
+                        mobileNavToggle.classList.remove('bi-x');
+                    }
+                });
             });
+
+            /**
+             * 2. Active Nav Link Highlighting on Scroll
+             */
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+
+            function updateActiveNav() {
+                let currentSection = 'home';
+                const scrollY = window.pageYOffset;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100; // Offset for sticky header
+                    const sectionHeight = section.offsetHeight;
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            /**
+             * 3. Back to Top Button
+             */
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            function toggleBackToTop() {
+                if (window.scrollY > 100) {
+                    backToTopButton.classList.add('active');
+                } else {
+                    backToTopButton.classList.remove('active');
+                }
+            }
+
+            // Add scroll event listener for both Nav and Back-to-Top
+            window.addEventListener('scroll', () => {
+                updateActiveNav();
+                toggleBackToTop();
+            });
+            
+            // Run on load
+            updateActiveNav();
+            toggleBackToTop();
+
+            // Removed logic for Slider, Portfolio Filter, and FAQ Accordion
+            // as those sections were removed.
+
         });
     </script>
+
 </body>
 </html>
